@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FastAPI Response UI</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='/styles.css') }}" />
+  </head>
+  <body>
+    <main class="card">
+      <div class="heading">
+        <span class="badge">FastAPI</span>
+        <h1>Ask a question</h1>
+        <p>Enter a message below and receive a response from the API.</p>
+      </div>
+
+      <form id="message-form">
+        <label for="message">Your message</label>
+        <textarea
+          id="message"
+          name="message"
+          rows="5"
+          maxlength="2000"
+          placeholder="Type your message here..."
+          required
+        ></textarea>
+        <div class="form-footer">
+          <span id="character-count">0 / 2000</span>
+          <button id="submit-button" type="submit">Send message</button>
+        </div>
+      </form>
+
+      <section id="result" class="result" aria-live="polite" hidden>
+        <h2>Response</h2>
+        <p id="response-text"></p>
+      </section>
+    </main>
+
+    <script src="{{ url_for('static', path='/app.js') }}"></script>
+  </body>
+</html>
